@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,14 +29,16 @@ import { SignUpLoginComponent } from './sign-up-login/sign-up-login.component';
     ItemComponent,
     ListToggleComponent,
     MainComponent,
-    SignUpLoginComponent
+    SignUpLoginComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [MovieService,MovieApiService,ApiService,],
+  providers: [MovieService, MovieApiService, ApiService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
