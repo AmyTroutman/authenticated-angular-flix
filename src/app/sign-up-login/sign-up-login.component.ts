@@ -27,5 +27,6 @@ export class SignUpLoginComponent implements OnInit {
   }
   async signup() {
     await this.authService.signup(this.username, this.password);
+    this.login();
   }
 }

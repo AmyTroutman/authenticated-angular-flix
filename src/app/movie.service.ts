@@ -17,12 +17,12 @@ export class MovieService {
     return this.myMovieList;
   }
   async searchForMovies(searchTerm) {
-    let response = await this.movieApi.get(`search/multi?query=${searchTerm}`);
+    const response = await this.movieApi.get(`search/multi?query=${searchTerm}`);
     this.searchResults.length = 0;
     this.searchResults.push(...response.results);
   }
   async loadMovieList() {
-    let results = await this.api.get(`movies`);
+    const results = await this.api.get(`movies`);
     this.myMovieList.length = 0;
     this.myMovieList.push(...results);
   }

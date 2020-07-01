@@ -1,9 +1,10 @@
-<div>
+<div class="room">
     <p>Username</p>
     <input type="text" [(ngModel)]="username">
+    <p>Password</p>
     <input type="password" [(ngModel)]="password">
-    <div>
-        <button (click)="login()">Login</button>
-        <button (click)="signup()">Sign Up</button>
+    <div class="button-wrapper">
+        <button class="Button" data-primary="true" (click)="login()">Login</button>
+        <button class="Button" data-primary="true" (click)="signup()">Sign Up</button>
     </div>
-</div>>
+</div>

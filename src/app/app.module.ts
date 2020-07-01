@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,11 @@ import {MovieService} from './movie.service';
 import {MovieApiService} from './movie-api.service';
 import {ApiService} from './api.service';
 import { SignUpLoginComponent } from './sign-up-login/sign-up-login.component';
+import { AuthInterceptor } from './auth-interceptor';
 
+export const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +43,7 @@ import { SignUpLoginComponent } from './sign-up-login/sign-up-login.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [MovieService, MovieApiService, ApiService, ],
+  providers: [MovieService, MovieApiService, ApiService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
